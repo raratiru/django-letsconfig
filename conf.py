@@ -42,7 +42,9 @@ class Config:
         db_engine=None,
     ):
         if os.path.exists(config_path):
-            raise ImproperlyConfigured("Configuration file '{0}', already exists".format(config_path))
+            raise ImproperlyConfigured(
+                "Configuration file '{0}', already exists".format(config_path)
+            )
         config = ConfigObj()
         config.filename = config_path
         config.indent_type = "    "
@@ -71,42 +73,52 @@ class Config:
         self.db_user = db_user or os.environ.get("DEFAULT_DATABASE_USER")
         self.db_name = db_name or os.environ.get("DEFAULT_DATABASE_NAME")
         self.db_engine = db_engine or os.environ.get("DATABASE_ENGINE")
-        if not all((
-            self.cache_path,
-            self.email_backend,
-            self.project_path,
-            self.project_name,
-            self.log_path,
-            self.media_root,
-            self.static_path,
-            self.static_root,
-            self.project_template_dir,
-            self.configuration_name,
-            self.db_password,
-            self.db_user,
-            self.db_name,
-            self.db_engine,
-        )):
-            raise ImproperlyConfigured("You did not enter a value for {0}".format(
-                ','.join([
-                    str(x) for x, val in enumerate((
-                        self.cache_path,  # 0
-                        self.email_backend,  # 1
-                        self.project_path,  # 2
-                        self.project_name,  # 3
-                        self.log_path,  # 4
-                        self.media_root,  # 5
-                        self.static_path,  # 6
-                        self.static_root,  # 7
-                        self.project_template_dir,  # 8
-                        self.configuration_name,  # 9
-                        self.db_password,  # 10
-                        self.db_user,  # 11
-                        self.db_name,  # 12
-                        self.db_engine,  # 13
-                    )) if not val
-                ])
-            ))
+        if not all(
+            (
+                self.cache_path,
+                self.email_backend,
+                self.project_path,
+                self.project_name,
+                self.log_path,
+                self.media_root,
+                self.static_path,
+                self.static_root,
+                self.project_template_dir,
+                self.configuration_name,
+                self.db_password,
+                self.db_user,
+                self.db_name,
+                self.db_engine,
+            )
+        ):
+            raise ImproperlyConfigured(
+                "You did not enter a value for {0}".format(
+                    ",".join(
+                        [
+                            str(x)
+                            for x, val in enumerate(
+                                (
+                                    self.cache_path,  # 0
+                                    self.email_backend,  # 1
+                                    self.project_path,  # 2
+                                    self.project_name,  # 3
+                                    self.log_path,  # 4
+                                    self.media_root,  # 5
+                                    self.static_path,  # 6
+                                    self.static_root,  # 7
+                                    self.project_template_dir,  # 8
+                                    self.configuration_name,  # 9
+                                    self.db_password,  # 10
+                                    self.db_user,  # 11
+                                    self.db_name,  # 12
+                                    self.db_engine,  # 13
+                                )
+                            )
+                            if not val
+                        ]
+                    )
+                )
+            )
         self.build()
 
     def build(self):
@@ -119,7 +131,7 @@ class Config:
             {
                 "ADMINS": [("George", "tantiras@yandex.com")],
                 "ALLOWED_HOSTS": ["127.0.0.1", "localhost"],
-                "AUTH_USER_MODE": 'people.User',
+                "AUTH_USER_MODE": "people.User",
                 "BASE_DIR": self.project_path,
                 "CACHES": {
                     "default": {
@@ -169,14 +181,12 @@ class Config:
                     "django.contrib.sessions",
                     "django.contrib.messages",
                     "django.contrib.staticfiles",
-                    'people.apps.PeopleConfig',
+                    "people.apps.PeopleConfig",
                 ],
                 "INTERNAL_IPS": ("127.0.0.1", "localhost"),
                 "LANGUAGES": [("en", "English"), ("el", "Greek")],
                 "LANGUAGE_CODE": "en",
-                "LOCALE_PATHS": [
-                    os.path.join(self.project_path, "00", "locale")
-                ],
+                "LOCALE_PATHS": [os.path.join(self.project_path, "00", "locale")],
                 "LOGGING": {
                     "version": 1,
                     "disable_existing_loggers": False,
@@ -294,29 +304,29 @@ class Config:
                 "USE_L10N": True,
                 "USE_TZ": True,
                 "WSGI_APPLICATION": "{0}.wsgi.application".format(self.project_name),
-
-
             }
         )
-        if self.configuration_name != 'Prod':
-            self.config['INSTALLED_APPS'].append('debug_toolbar')
+        if self.configuration_name != "Prod":
+            self.config["INSTALLED_APPS"].append("debug_toolbar")
             self.config["DEBUG"] = True
         else:
-            self.config.update({
-                'CSRF_COOKIE_HTTPONLY': True,
-                'CSRF_COOKIE_SECURE': True,
-                'EMAIL_USE_TLS': True,
-                'PREPEND_WWW': False,
-                'SECURE_BROWSER_XSS_FILTER': True,
-                'SECURE_CONTENT_TYPE_NOSNIFF': True,
-                'SECURE_HSTS_INCLUDE_SUBDOMAINS': True,
-                'SECURE_HSTS_PRELOAD': True,
-                'SECURE_HSTS_SECONDS': 31536000,
-                'SECURE_SSL_REDIRECT': True,
-                'SESSION_COOKIE_AGE': 43200,
-                'SESSION_COOKIE_SECURE': True,
-                'X_FRAME_OPTIONS': "DENY",
-            })
+            self.config.update(
+                {
+                    "CSRF_COOKIE_HTTPONLY": True,
+                    "CSRF_COOKIE_SECURE": True,
+                    "EMAIL_USE_TLS": True,
+                    "PREPEND_WWW": False,
+                    "SECURE_BROWSER_XSS_FILTER": True,
+                    "SECURE_CONTENT_TYPE_NOSNIFF": True,
+                    "SECURE_HSTS_INCLUDE_SUBDOMAINS": True,
+                    "SECURE_HSTS_PRELOAD": True,
+                    "SECURE_HSTS_SECONDS": 31536000,
+                    "SECURE_SSL_REDIRECT": True,
+                    "SESSION_COOKIE_AGE": 43200,
+                    "SESSION_COOKIE_SECURE": True,
+                    "X_FRAME_OPTIONS": "DENY",
+                }
+            )
 
         if self.include_celery:
             self.config.update(

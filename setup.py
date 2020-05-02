@@ -5,20 +5,21 @@
 from setuptools import setup, find_packages
 
 
-with open('README.rst') as f:
+with open("README.rst") as f:
     readme = f.read()
 
-with open('LICENSE') as f:
+with open("LICENSE") as f:
     license = f.read()
 
 setup(
-    name='django-letsconfig',
-    version='0.1.0',
-    description='Base configuration setup for Django',
+    name="django-letsconfig",
+    version="0.1.0",
+    description="Base configuration setup for Django",
     long_description=readme,
-    author='George Tantiras',
-    author_email='',
-    url='https://github.com/raratiru/django-letsconfig',
+    author="George Tantiras",
+    author_email="",
+    url="https://github.com/raratiru/django-letsconfig",
     license=license,
-    packages=find_packages(exclude=('tests', 'docs'))
+    packages=find_packages(exclude=("tests", "docs")),
+    install_requires=["configobj"],
 )
