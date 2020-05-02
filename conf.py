@@ -4,7 +4,7 @@
 
 # ==============================================================================
 #
-#       File Name : configuration.py
+#       File Name : conf.py
 #
 #       Creation Date : Fri 01 May 2020 09:01:10 PM EEST (21:01)
 #
