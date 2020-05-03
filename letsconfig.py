@@ -8,7 +8,7 @@
 #
 #       Creation Date : Fri 01 May 2020 09:01:10 PM EEST (21:01)
 #
-#       Last Modified : Sun 03 May 2020 02:40:20 AM EEST (02:40)
+#       Last Modified : Sun 03 May 2020 02:12:03 PM EEST (14:12)
 #
 # ==============================================================================
 
@@ -49,6 +49,7 @@ class Config:
         config.filename = config_path
         config.indent_type = "    "
         config.interpolation = False
+        config.unrepr = True
         self.config = config
         self.defaults = default_module
         self.cache_path = cache_path or os.environ.get("DJANGO_CACHE_PATH")
