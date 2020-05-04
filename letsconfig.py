@@ -278,7 +278,7 @@ class Config:
                 ),
                 "SESSION_EXPIRE_AT_BROWSER_CLOSE": True,
                 "SITE_ID": 1,
-                "STATICFILES_DIRS": self.static_path,
+                "STATICFILES_DIRS": [self.static_path],
                 "STATIC_ROOT": self.static_root,
                 "STATIC_URL": "/static/",
                 "TEMPLATES": [
