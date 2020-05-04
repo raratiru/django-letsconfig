@@ -131,7 +131,7 @@ class Config:
             {
                 "ADMINS": [("George", "tantiras@yandex.com")],
                 "ALLOWED_HOSTS": ["127.0.0.1", "localhost"],
-                "AUTH_USER_MODE": "people.User",
+                "AUTH_USER_MODEL": "people.User",
                 "BASE_DIR": self.project_path,
                 "CACHES": {
                     "default": {
