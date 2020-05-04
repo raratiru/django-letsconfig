@@ -230,7 +230,7 @@ class Config:
                         },
                     },
                     "loggers": {
-                        "": {
+                        "config_placeholder": {
                             "handlers": ["file", "console"],
                             "level": "INFO",
                             "propagate": True,
