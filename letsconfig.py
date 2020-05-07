@@ -68,7 +68,7 @@ class Config:
         )
         self.timezone = timezone
         self.configuration_name = configuration_name or os.environ.get(
-            "DJANGO_CONFIGURATION"
+            "DJANGO_CONFIGURATION_DESC"
         )
         self.db_password = db_password or os.environ.get("DEFAULT_DATABASE_PASSWORD")
         self.db_user = db_user or os.environ.get("DEFAULT_DATABASE_USER")
