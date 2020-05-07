@@ -13,7 +13,7 @@ with open("LICENSE") as f:
 
 setup(
     name="django-letsconfig",
-    version="0.1.0",
+    version="0.1.3",
     description="Base configuration setup for Django",
     long_description=readme,
     author="George Tantiras",
