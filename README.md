@@ -1,2 +1,2 @@
 # django-letsconfig
-Basic django configuration usinv ConfigObj
+Basic django configuration using ConfigObj
